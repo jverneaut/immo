@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Helmet from "react-helmet"
 
 const IndexPage = props => {
   const { allProduct } = props.data
@@ -7,6 +8,9 @@ const IndexPage = props => {
 
   return (
     <>
+      <Helmet>
+        <title>Accueil - L'agence immobilière</title>
+      </Helmet>
       <h1>Immobilier</h1>
       <ul>
         {products.map(product => (

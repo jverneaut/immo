@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
-// import { graphql } from "gatsby"
-// import { Link } from "gatsby"
 import Header from "../components/Header"
+import GoogleMapReact from "google-map-react"
+
+import "../styles/main.scss"
 
 const Layout = props => {
   useEffect(() => {
@@ -11,13 +12,28 @@ const Layout = props => {
     }
   }, [])
 
-  if (props.pathContext.layout === "map") {
+  if (props.pageContext.layout === "map") {
     return (
-      <div>
-        <Header />
-        <div>Faites comme si j'étais une carte</div>
-        <img src="https://picsum.photos/500/300" alt="" />
-        {props.children}
+      <div className="layout">
+        <div className="layout__top">
+          <Header />
+        </div>
+        <div className="layout__bottom">
+          <div className="layout__left">
+            <GoogleMapReact
+              // bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
+              defaultCenter={{ lat: 10, lng: 30 }}
+              defaultZoom={11}
+            >
+              {/* <AnyReactComponent
+                  lat={59.955413}
+                  lng={30.337844}
+                  text="My Marker"
+                /> */}
+            </GoogleMapReact>
+          </div>
+          <div className="layout__right">{props.children}</div>
+        </div>
       </div>
     )
   } else {
