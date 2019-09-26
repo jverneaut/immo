@@ -19,6 +19,9 @@ const Layout = props => {
         <div className="layout__bottom">
           <div className="layout__left">
             <GoogleMapReact
+              bootstrapURLKeys={{
+                key: "AIzaSyAasibcxKOhaJPDIflcOPIiD4NfBz8Xv6E",
+              }}
               defaultCenter={{ lat: 7.7461514, lng: 7.7461514 }}
               center={{
                 lat: parseFloat(props.data.product.lat),
