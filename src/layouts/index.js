@@ -50,7 +50,7 @@ const Layout = props => {
     return (
       <div>
         <Header />
-        {props.children}
+        <div className="home">{props.children}</div>
       </div>
     )
   }
