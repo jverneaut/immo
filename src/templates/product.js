@@ -13,7 +13,7 @@ export default props => {
       </Helmet>
       <h1>{product.title}</h1>
       <p>{product.description}</p>
-      <img src="https://picsum.photos/500/300" alt="" />
+      <img src={product.img} alt="" />
 
       {allProduct.nodes.map(product => (
         <li key={product.id}>
@@ -38,6 +38,8 @@ export const query = graphql`
         id
         title
         slug
+        lat
+        lng
       }
     }
   }

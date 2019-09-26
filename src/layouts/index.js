@@ -1,16 +1,26 @@
 import React, { useEffect } from "react"
 import Header from "../components/Header"
 import GoogleMapReact from "google-map-react"
+import { Link } from "gatsby"
 
 import "../styles/main.scss"
 
+const Indicator = ({ slug }) => (
+  <Link to={"/" + slug} className="indicator"></Link>
+)
+
 const Layout = props => {
+  const [center, setCenter] = React.useState({
+    lat: null,
+    lng: null,
+  })
+
   useEffect(() => {
-    console.log("Mounted")
-    return () => {
-      console.log("Unmounted")
-    }
-  }, [])
+    setCenter({
+      lat: parseFloat(props.data.product.lat),
+      lng: parseFloat(props.data.product.lng),
+    })
+  }, [props.data.product])
 
   if (props.pageContext.layout === "map") {
     return (
@@ -21,15 +31,18 @@ const Layout = props => {
         <div className="layout__bottom">
           <div className="layout__left">
             <GoogleMapReact
-              // bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
-              defaultCenter={{ lat: 10, lng: 30 }}
-              defaultZoom={11}
+              defaultCenter={{ lat: 7.7461514, lng: 7.7461514 }}
+              center={center}
+              defaultZoom={13}
             >
-              {/* <AnyReactComponent
-                  lat={59.955413}
-                  lng={30.337844}
-                  text="My Marker"
-                /> */}
+              {props.data.allProduct.nodes.map(product => (
+                <Indicator
+                  key={product.id}
+                  lat={parseFloat(product.lat)}
+                  lng={parseFloat(product.lng)}
+                  slug={product.slug}
+                />
+              ))}
             </GoogleMapReact>
           </div>
           <div className="layout__right">{props.children}</div>

@@ -30,3 +30,11 @@ body {
   width: 560px;
   height: 100%;
 }
+
+.indicator {
+  display: block;
+  height: 40px;
+  width: 40px;
+  background: red;
+  border-radius: 50%;
+}
