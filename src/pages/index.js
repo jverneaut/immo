@@ -11,7 +11,8 @@ const IndexPage = props => {
       <Helmet>
         <title>Accueil - L'agence immobilière</title>
       </Helmet>
-      <h1>Immobilier</h1>
+      <h1>L'agence immobilière</h1>
+      <p>Nous sommes une agence immobilère</p>
       <ul>
         {products.map(product => (
           <li key={product.id}>
