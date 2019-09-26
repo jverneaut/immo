@@ -19,6 +19,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-layout`,
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`lato`],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
