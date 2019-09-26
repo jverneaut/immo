@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <Link to="/">L'agence Immobilière</Link>
     </div>
   )

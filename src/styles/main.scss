@@ -1,6 +1,28 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: system-ui;
+  background: #2b2b2b;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  text-decoration: underline;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+li {
+  line-height: 1.5;
+}
+
+p {
+  line-height: 1.4;
 }
 
 .layout {
@@ -11,7 +33,6 @@ body {
 }
 
 .layout__top {
-  border-bottom: 1px solid black;
 }
 
 .layout__bottom {
@@ -23,18 +44,34 @@ body {
 
 .layout__left {
   flex: 1;
-  border-right: 1px solid black;
 }
 
 .layout__right {
   width: 560px;
   height: 100%;
+  overflow-y: auto;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
 .indicator {
   display: block;
-  height: 40px;
-  width: 40px;
-  background: red;
-  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  background: rgb(85, 85, 255);
+  border: 4px solid rgb(255, 255, 255);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.header {
+  padding: 16px;
+  background: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.header a {
+  color: black;
 }

@@ -3,6 +3,8 @@ import Header from "../components/Header"
 import GoogleMapReact from "google-map-react"
 import { Link } from "gatsby"
 
+import styles from "../../mapStyle.json"
+
 import "../styles/main.scss"
 
 const Indicator = ({ slug }) => (
@@ -19,6 +21,7 @@ const Layout = props => {
         <div className="layout__bottom">
           <div className="layout__left">
             <GoogleMapReact
+              options={{ styles }}
               bootstrapURLKeys={{
                 key: "AIzaSyAasibcxKOhaJPDIflcOPIiD4NfBz8Xv6E",
               }}
