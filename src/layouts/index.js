@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Header from "../components/Header"
 import GoogleMapReact from "google-map-react"
 import { Link } from "gatsby"
@@ -10,11 +10,6 @@ const Indicator = ({ slug }) => (
 )
 
 const Layout = props => {
-  const [center, setCenter] = React.useState({
-    lat: null,
-    lng: null,
-  })
-
   if (props.pageContext.layout === "map") {
     return (
       <div className="layout">
