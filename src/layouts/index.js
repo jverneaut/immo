@@ -15,13 +15,6 @@ const Layout = props => {
     lng: null,
   })
 
-  useEffect(() => {
-    setCenter({
-      lat: parseFloat(props.data.product.lat),
-      lng: parseFloat(props.data.product.lng),
-    })
-  }, [props.data.product])
-
   if (props.pageContext.layout === "map") {
     return (
       <div className="layout">
@@ -32,7 +25,10 @@ const Layout = props => {
           <div className="layout__left">
             <GoogleMapReact
               defaultCenter={{ lat: 7.7461514, lng: 7.7461514 }}
-              center={center}
+              center={{
+                lat: parseFloat(props.data.product.lat),
+                lng: parseFloat(props.data.product.lng),
+              }}
               defaultZoom={13}
             >
               {props.data.allProduct.nodes.map(product => (
